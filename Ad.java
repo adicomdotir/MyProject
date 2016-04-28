@@ -23,7 +23,7 @@ public class Ad {
 		*/
 		int c=0;
 		for(int i=0; i<1000000; i++) {
-			if(i%1987==0) {
+			if(i%1366==0) {
 				c++;
 			}
 		}
