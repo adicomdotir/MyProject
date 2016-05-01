@@ -5,12 +5,12 @@ public class Shape {
 	private Tetrominoes pieceShape;
 	private int coords[][];
 	private int[][][] coordsTable;
+	
 	public Shape() {
-	coords = new int[4][2];
-	setShape(Tetrominoes.NoShape);
+		coords = new int[4][2];
+		setShape(Tetrominoes.NoShape);
 	}
-	public void setShape(Tetrominoes shape) {
-		
+	public void setShape(Tetrominoes shape) {		
 		coordsTable = new int[][][] {
 			{ { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 } },
 			{ { 0, -1 }, { 0, 0 }, { -1, 0 }, { -1, 1 } },
@@ -23,8 +23,7 @@ public class Shape {
 		};
 		for (int i = 0; i < 4 ; i++) {
 			for (int j = 0; j < 2; ++j) {
-				coords[i][j] =
-				coordsTable[shape.ordinal()][i][j];
+				coords[i][j] = coordsTable[shape.ordinal()][i][j];
 			}
 		}
 		pieceShape = shape;
@@ -44,11 +43,11 @@ public class Shape {
 	}
 	
 	public int minX() {
-	int m = coords[0][0];
-	for (int i=0; i < 4; i++) {
-	m = Math.min(m, coords[i][0]);
-	}
-	return m;
+		int m = coords[0][0];
+		for (int i=0; i < 4; i++) {
+			m = Math.min(m, coords[i][0]);
+		}
+		return m;
 	}
 	public int minY() {
 		int m = coords[0][1];

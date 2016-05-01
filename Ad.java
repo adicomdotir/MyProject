@@ -1,32 +1,67 @@
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Scanner;
+import java.lang.Runtime;
 
 public class Ad {
+	public static Scanner sc;
 	public static void main(String[] args) {
-		/*
-		ArrayList<String> obj = new ArrayList<String>();
-		obj.add("David");
-		obj.add("Cris");
-		obj.add(0, "Leo");
-		obj.remove(1);
-		obj.remove("Leo");
-		
-		System.out.println("Advanced For Loop"); 		
-		for(String x:obj)
-			System.out.println(x);
-		
-		System.out.println("Iterator is best");
-		Iterator iter = obj.iterator();
-		while (iter.hasNext()) {
-			System.out.println(iter.next());
-		}
-		*/
-		int c=0;
-		for(int i=0; i<1000000; i++) {
-			if(i%1366==0) {
-				c++;
+		sc = new Scanner(System.in);
+		int n = 0;
+		while(true) {
+			init();
+			n = sc.nextInt();
+			switch(n) {
+				case 1:
+					power();
+					break;
+				case 2: 
+					fact();
+					break;
+				case 3:
+					c();
+					break;
+				case 4:
+					sin();
+					break;
+				case 5:
+					return;
 			}
 		}
-		System.out.println(c);
+	}
+	
+	public static void init() {
+		//System.out.print("\033[H\033[2J");
+		System.out.println("");
+		System.out.println("Menu:");
+		System.out.println("1: power(x,y)");
+		System.out.println("2: factorial(n)");
+		System.out.println("3: c(m,n)");
+		System.out.println("4: sin(x)");
+		System.out.print("Please enter a number? ");
+	}
+	
+	public static void power() {
+		System.out.print("power(x,y) enter x,y: ");
+		int x = sc.nextInt();
+		int y = sc.nextInt();
+		int sum = 1;
+		for(int i=1; i<=y; i++)
+			sum *= x;
+		System.out.println("power(" + x + "," + y + ")=" + sum);
+	}
+	
+	public static void fact() {
+		System.out.print("factorial(n) enter n: ");
+		int n = sc.nextInt();
+		int sum = 1;
+		for(int i=1; i<=n; i++)
+			sum *= i;
+		System.out.println("factorial(" + n + ")=" + sum);
+	}
+	
+	public static void c() {
+		
+	}
+	
+	public static void sin() {
 	}
 }
