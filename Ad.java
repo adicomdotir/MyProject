@@ -3,7 +3,6 @@ import java.util.Iterator;
 
 public class Ad {
 	public static void main(String[] args) {
-		/*
 		ArrayList<String> obj = new ArrayList<String>();
 		obj.add("David");
 		obj.add("Cris");
@@ -20,13 +19,5 @@ public class Ad {
 		while (iter.hasNext()) {
 			System.out.println(iter.next());
 		}
-		*/
-		int c=0;
-		for(int i=0; i<1000000; i++) {
-			if(i%1987==0) {
-				c++;
-			}
-		}
-		System.out.println(c);
 	}
 }
