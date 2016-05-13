@@ -4,7 +4,6 @@ import java.lang.Runtime;
 public class Ad {
 	public static Scanner sc;
 	public static void main(String[] args) {
-<<<<<<< HEAD
 		sc = new Scanner(System.in);
 		int n = 0;
 		while(true) {
