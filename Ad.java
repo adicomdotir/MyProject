@@ -1,6 +1,6 @@
 import java.util.Scanner;
 import java.lang.Runtime;
-
+// for git-cola
 public class Ad {
 	public static Scanner sc;
 	public static void main(String[] args) {
