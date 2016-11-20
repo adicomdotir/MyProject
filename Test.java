@@ -1,47 +1,57 @@
-import java.util.Scanner;
 
 public class Test {
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("HelloWorld!");
-		Person p = new Person("Ali");
-		Student st = new Student("Hassan");
-		Person stToPerson = new Student("Mussa");
-		System.out.println(p);
-		System.out.println(st);
-		System.out.println(stToPerson);
-
-
+		MyThread t1 = new MyThread();
+		Thread t2 = new Thread(new MyRunnable());
+		t2.setDaemon(true);
+		t2.start();
+		t1.start();
+		Integer x = 11;
+		synchronized(x) {
+		    System.out.println("Synchronized");
+		}
+		System.out.println("End");
+		method((String str)->System.out.println(str));
+	}
+	
+	public static void method(IF i) {
+	    i.ff("HelloWorld");
 	}
 }
 
-class Person {
-	private String name;
-	Person(String name) {
-		this.name = name;
+class MyThread extends Thread {
+	public void run() {
+		super.run();
+		for(char i = 'A'; i<'Z'; i++) {
+			System.out.println(i);
+			try {
+				Thread.sleep(5);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getName() {
-		return name;
-	}
-	@Override
-	public String toString() {
-		return "This is Person : name is " + getName();
-	}
-}
-
-class Student extends Person {
-	Student(String name) {
-		super(name);
-	}
-	@Override
-	public String toString() {
-		return "This is Student : name is " + getName();
+	
+	public String getStr() {
+	    return "www.adicom.ir";
 	}
 }
 
-interface OnClick {
-	void print();
+class MyRunnable implements Runnable {
+
+	public void run() {
+		for (int i = 0; i < 25; i++) {
+			System.out.println(i);
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+}
+
+interface IF {
+    void ff(String str);
 }
