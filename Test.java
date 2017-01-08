@@ -1,4 +1,7 @@
-
+// TODO sadfsadf
+// FIXME asdfsadf
+// XXX asdfasdf
+// REVIEW aaaaaaaaa
 public class Test {
 	public static void main(String[] args) {
 		MyThread t1 = new MyThread();
@@ -13,7 +16,7 @@ public class Test {
 		System.out.println("End");
 		method((String str)->System.out.println(str));
 	}
-	
+
 	public static void method(IF i) {
 	    i.ff("HelloWorld");
 	}
@@ -31,7 +34,7 @@ class MyThread extends Thread {
 			}
 		}
 	}
-	
+
 	public String getStr() {
 	    return "www.adicom.ir";
 	}
@@ -49,9 +52,24 @@ class MyRunnable implements Runnable {
 			}
 		}
 	}
-	
+
 }
 
 interface IF {
     void ff(String str);
+}
+
+class Person {
+	private String name;
+	private int age;
+	public Person(String name, int age) {
+		this.name = name;
+		this.age = age;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getName() {
+		return name;
+	}
 }

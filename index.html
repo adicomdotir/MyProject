@@ -1,0 +1,22 @@
+<html>
+ <head>
+   <style>
+   </style>
+   <script type = 'text/javascript'>
+     function DoSomething(incomingBits) {
+         alert("Global variable within the function: " + incomingBits);
+         document.write("HelloWorld");
+         Math.random();
+     }
+   </script>
+ </head>
+ <body>
+   <div>
+       <b>this is test</b>
+   </div>
+   <script type = 'text/javascript'>
+     DoSomething("is a local variable");
+     alert("Global variable outside the function: + inCommingBits");
+   </script>
+ </body>
+</html>
