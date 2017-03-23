@@ -15,3 +15,13 @@ class Person {
 		this.name = name;
 	}
 }
+
+class Student {
+	private int grade;
+	public void setGrade(int grade) {
+		this.grade = grade;
+	}
+	public int getGrade() {
+		return grade;
+	}
+}
