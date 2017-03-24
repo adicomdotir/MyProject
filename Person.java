@@ -1,19 +1,64 @@
-import java.util.Vector;
 
-public class Person implements Worker {
+
+/**
+ * Class Person
+ */
+public class Person {
+
+  //
+  // Fields
+  //
 
   private String name;
+  
+  //
+  // Constructors
+  //
+  public Person () { };
+  
+  //
+  // Methods
+  //
 
-  private Integer age;
 
-    public Vector  myTest;
-    public Vector  myTest;
+  //
+  // Accessor methods
+  //
 
-  public setName(String name) {
+  /**
+   * Set the value of name
+   * @param newVar the new value of name
+   */
+  private void setName (String newVar) {
+    name = newVar;
   }
 
-  public String getName() {
-  return null;
+  /**
+   * Get the value of name
+   * @return the value of name
+   */
+  private String getName () {
+    return name;
   }
+
+  //
+  // Other methods
+  //
+
+  /**
+   * @param        name
+   */
+  public void setName(String name)
+  {
+  }
+
+
+  /**
+   * @return       String
+   */
+  public String getName()
+  {
+  }
+
 
 }
