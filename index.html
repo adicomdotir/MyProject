@@ -1,19 +1,22 @@
 <html>
     <head>
-        <style> 
-            .test{ border-style: solid; } 
-        </style> 
+        <style>
+        </style>
+        <script type='text/javascript'>
+            var myMethod = function(index) {
+            	document.writeln("myMethod! : " + index);
+            }
+            myMethod(0);
+            var myMethod01 = function myMethod01(index) {
+            	document.writeln("myMethod01! : " + index);
+            }
+            myMethod01(1);
+            var myMethod02 = function myMethod02F(index) {
+            	document.writeln("myMethod01! : " + index);
+            }
+            myMethod02(2);
+        </script>
     </head>
     <body>
-        <p>Some text</p> 
-        <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
-        <script> 
-            $(function() {
-                $("p").addClass("test"); 
-            });
-            $("p").click(function() {
-               alert("asdfasdf"); 
-            });
-        </script>
     </body>
 </html>
