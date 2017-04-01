@@ -8,5 +8,7 @@ public class MyClass {
 		System.out.println(r);
 		Employee e = new Employee(1, "Ali", "Hassani", 750);
 		System.out.println(e);
+		InvoiceItem i = new InvoiceItem("A001", "Battery", 6, 3.89);
+		System.out.println(i);
 	}
 }
