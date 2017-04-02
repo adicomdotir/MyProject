@@ -14,5 +14,9 @@ public class MyClass {
 		System.out.println(a);
 		Time time = new Time(10,50,25);
 		System.out.println(time);
+		Book book = new Book("Java", 
+			new Author("Adicom", "info@adicom.ir", 'm'),
+			19.5);
+		System.out.println(book);
 	}
 }
