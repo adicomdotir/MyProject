@@ -12,5 +12,7 @@ public class MyClass {
 		System.out.println(i);
 		Account a = new Account("Account001", "Adicom", 7500);
 		System.out.println(a);
+		Time time = new Time(10,50,25);
+		System.out.println(time);
 	}
 }
