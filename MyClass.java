@@ -10,5 +10,7 @@ public class MyClass {
 		System.out.println(e);
 		InvoiceItem i = new InvoiceItem("A001", "Battery", 6, 3.89);
 		System.out.println(i);
+		Account a = new Account("Account001", "Adicom", 7500);
+		System.out.println(a);
 	}
 }
