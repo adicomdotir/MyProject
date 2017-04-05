@@ -22,5 +22,7 @@ public class MyClass {
 		System.out.println(book);
 		MyPoint myPoint = new MyPoint(5, 3);
 		System.out.println(myPoint.distance());
+		MyCircle myCircle = new MyCircle(myPoint, 5);
+		System.out.println(myCircle);
 	}
 }
