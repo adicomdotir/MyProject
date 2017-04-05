@@ -20,5 +20,7 @@ public class MyClass {
 		};
 		Book book = new Book("Java", authors, 19.5);
 		System.out.println(book);
+		MyPoint myPoint = new MyPoint(5, 3);
+		System.out.println(myPoint.distance());
 	}
 }
