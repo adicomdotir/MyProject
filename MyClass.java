@@ -14,15 +14,20 @@ public class MyClass {
 		System.out.println(a);
 		Time time = new Time(10,50,25);
 		System.out.println(time);
+
 		Author[] authors = {
 			new Author("Adicom", "info@adicom.ir", 'm'),
 			new Author("K112", "info@k112.ir", 'm')
 		};
 		Book book = new Book("Java", authors, 19.5);
 		System.out.println(book);
+
 		MyPoint myPoint = new MyPoint(5, 3);
-		System.out.println(myPoint.distance());
 		MyCircle myCircle = new MyCircle(myPoint, 5);
 		System.out.println(myCircle);
+
+		MyTriangle myTriangle = new MyTriangle(1,1,1,1,1,1);
+		System.out.println(myTriangle);
+		System.out.println(myTriangle.getType());
 	}
 }
