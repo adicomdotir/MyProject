@@ -29,5 +29,8 @@ public class MyClass {
 		MyTriangle myTriangle = new MyTriangle(1,1,1,1,1,1);
 		System.out.println(myTriangle);
 		System.out.println(myTriangle.getType());
+
+		MyPolynomial p1 = new MyPolynomial(1.1, 2.2, 3.3);
+		System.out.println("" + p1.evaluate(2));
 	}
 }
