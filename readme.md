@@ -1,1 +1,0 @@
-www.adicom.ir
