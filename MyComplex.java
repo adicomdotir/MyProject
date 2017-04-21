@@ -50,5 +50,40 @@ public class MyComplex {
 		return Math.atan2(imag, real);
 	}
 
-	public MyComplex add(MyComplex right) {}
+	public MyComplex add(MyComplex right) {
+		this.real += right.real;
+		this.imag += right.imag;
+		return this;
+	}
+
+	public MyComplex addNew(MyComplex right) {
+		return new MyComplex(right.real + real, right.imag + imag);
+	}
+
+	public MyComplex substract(MyComplex right) {
+		this.real -= right.real;
+		this.imag -= right.imag;
+		return this;
+	}
+
+	public MyComplex substract(MyComplex right) {
+		return new MyComplex(right.real - real, right.imag - imag);
+	}
+
+	public MyComplex multiply(MyComplex right) {
+		this.real *= right.real;
+		this.imag *= right.imag;
+		return this;
+	}
+
+	public MyComplex divide(MyComplex right) {
+		this.real /= right.real;
+		this.imag /= right.imag;
+		return this;
+	}
+
+	public MyComplex conjugate() {
+		this.imag *= -1;
+		return this;
+	}
 }
