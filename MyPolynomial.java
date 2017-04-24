@@ -26,4 +26,12 @@ public class MyPolynomial {
         }
         return temp;
     }
+
+    public MyPolynomial add(MyPolynomial right) {
+        return this;
+    }
+
+    public MyPolynomial multiply(MyPolynomial right) {
+        return this;
+    }
 }
