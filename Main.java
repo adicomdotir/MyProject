@@ -23,6 +23,10 @@ public class Main {
         System.out.println(myPoly);
         myPoly.add(new MyPolynomial(1, 1, 2));
 		System.out.println(myPoly);
+		
+        System.out.println(new MyTime(7,5,1));
+
+		System.out.println(new MyDate(2017, 4, 28));
     }
 }
 
