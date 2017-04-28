@@ -18,7 +18,10 @@ public class MyPolynomial {
         return str;
     }
 
+	public double[] getCoeffs() { return coeffs; }
+
     public int getDegree() { return coeffs.length - 1; }
+
     public double evaluate(double x) {
         double temp = 0;
         for(int i=coeffs.length-1; i>=0; i--) {
@@ -28,10 +31,18 @@ public class MyPolynomial {
     }
 
     public MyPolynomial add(MyPolynomial right) {
+		double[] temp = right.getCoeffs();
+		for(int i=0; i<coeffs.length; i++) {
+			coeffs[i] += temp[i];		
+		}
         return this;
     }
 
     public MyPolynomial multiply(MyPolynomial right) {
+        double[] temp = right.getCoeffs();
+		for(int i=0; i<coeffs.length; i++) {
+			coeffs[i] *= temp[i];		
+		}
         return this;
     }
 }

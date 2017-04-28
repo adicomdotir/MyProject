@@ -18,6 +18,11 @@ public class Main {
     	.sorted((a,b)->b.price-a.price)
     	.limit(2)
     	.forEach(a->System.out.println(a));
+
+		MyPolynomial myPoly = new MyPolynomial(1, 1, 2);
+        System.out.println(myPoly);
+        myPoly.add(new MyPolynomial(1, 1, 2));
+		System.out.println(myPoly);
     }
 }
 
