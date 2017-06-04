@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace ConsoleApplication
 {
@@ -14,6 +15,10 @@ namespace ConsoleApplication
                 sum *= i;
             }
             Console.WriteLine("Sum = " + sum);
+			ProcessStartInfo startInfo = new ProcessStartInfo() { FileName = "ls", Arguments = "-l", };
+			ProcessStartInfo startInfo2 = new ProcessStartInfo() { FileName = "grep", Arguments = "'.cs'", };
+			Process proc = new Process() { StartInfo = startInfo, };
+			proc.Start();
         }
     }
 
