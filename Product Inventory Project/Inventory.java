@@ -11,8 +11,13 @@ public class Inventory {
     
     public void setId(int id) { this.id = id; }
     public int getId() { return id; }
+    
     public void addProduct(Product product) {
     	products.add(product);
+    }
+    
+    public void removeProduct(Product product) {
+        products.remove(product);
     }
     
 	public int sumProducts() {
