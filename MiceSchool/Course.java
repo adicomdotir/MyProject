@@ -10,6 +10,7 @@ public class Course {
 			return false;
 		else {
 			students[count] = s;
+			count++;
 		}
 		return true;
 	}
