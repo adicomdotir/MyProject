@@ -6,5 +6,6 @@ public class Main {
 		course.register(new Student("Ali", 22));
 		System.out.println(course.getNumOfStudents());
 		System.err.println(course.getNumOfStudents());
+		
 	}
 }
