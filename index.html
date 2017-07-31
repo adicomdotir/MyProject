@@ -14,7 +14,9 @@
         </style>
         <script type='text/javascript'>
             var myMethod = function(index) {
-            	document.writeln("myMethod! : " + index);
+                var now2 = Date.UTC(2017, 5, 6, 12, 1, 42,6);
+                var now = new Date();
+            	document.writeln(now2.toString());
             }
             myMethod(0);
             var myMethod01 = function myMethod01(index) {
