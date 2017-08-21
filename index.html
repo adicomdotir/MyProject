@@ -14,19 +14,37 @@
         </style>
         <script type='text/javascript'>
             var myMethod = function(index) {
-                var now2 = Date.UTC(2017, 5, 6, 12, 1, 42,6);
+                console.log(index);
+            }
+            myMethod('HelloWorld');
+            var person = new Object();
+            person.firstName = "Yashar";
+            person.birth = new Date(1987, 6, 2);
+            person.getAge = function() {
                 var now = new Date();
-            	document.writeln(now2.toString());
+                return now.getFullYear() - this.birth.getFullYear();
             }
-            myMethod(0);
-            var myMethod01 = function myMethod01(index) {
-            	document.writeln("myMethod01! : " + index);
-            }
-            myMethod01(1);
-            var myMethod02 = function myMethod02F(index) {
-            	document.writeln("myMethod01! : " + index);
-            }
-            myMethod02(2);
+            console.log(person.getAge());
+//            var Rectangle = {
+//                x: 3,
+//                y: 4,
+//                area: function() {
+//                    return this.x * this.y;
+//                }
+//            };
+            function Rectangle() {
+                this.x = 3;
+                this.y = 5;
+                this.area = function() {
+                    return this.x * this.y;
+                }
+            };
+            var rect = new Rectangle();
+            console.log(rect.area());
+            var test = {
+                x: 5
+            };
+            test.prototype
         </script>
     </head>
     <body>
