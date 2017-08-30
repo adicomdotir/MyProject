@@ -1,5 +1,11 @@
 #include "iostream"
 
+class MyClass {
+	MyClass() {
+		std::cout << "Constructor";
+	}
+};
+
 int main(void) 
 {
     std::cout << "Hello! This is a C++ program.\n";
@@ -8,10 +14,4 @@ int main(void)
     }
     MyClass mClass = new MyClass();
     return 0;
-}
-
-class MyClass {
-	MyClass() {
-		std::cout << "Constructor";
-	}
 }
