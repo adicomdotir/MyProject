@@ -26,20 +26,32 @@ public class Library {
 		if (member.getLastName() == null) {
 			throw new IllegalArgumentException("member.lastName is null");
 		}
-		member.setId(this.idGenerator.generate);
-		this.members[index++] = member;
+		member.setId(this.idGenerator.generate());
+		for (int i = 0; i < this.capacity; i++) {
+			if (this.members[i] == null) {
+				this.members[i] = member;
+				index++;
+				break;
+			}
+		}
 	}
 	
 	public Member unregister(int id) {
-		Member member;
-		for (int i = 0; i < this.index; i++) {
+		Member member = null;
+		int index = -1;
+		for (int i = 0; i < this.capacity; i++) {
 			if (this.members[i] != null && this.members[i].getId() == id) {
 				member = this.members[i];
 				this.members[i] = null;
-				return member;
+				index = i;
+				this.index--;
+				break;
 			}
 		}
-		throw new MemberNotFoundException("No member found with the given id");
+		if (index == -1) {
+			throw new MemberNotFoundException("No member found with the given id");
+		}
+		return member;
 	}
 
 	public int getMemberCount() {
