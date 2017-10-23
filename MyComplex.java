@@ -66,7 +66,7 @@ public class MyComplex {
 		return this;
 	}
 
-	public MyComplex substract(MyComplex right) {
+	public MyComplex substractNew(MyComplex right) {
 		return new MyComplex(right.real - real, right.imag - imag);
 	}
 

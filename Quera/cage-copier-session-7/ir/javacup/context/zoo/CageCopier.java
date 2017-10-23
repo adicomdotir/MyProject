@@ -7,7 +7,9 @@ public class CageCopier {
 			c2.setName(c1.getName());
 			Bird[] birds = c1.getBirds();
 			Bird[] newBirds = new Bird[2];
+
 			if(birds == null) c2.setBirds(null);
+
 			if(birds[0] != null) {
 				newBirds[0] = new Bird();
 				newBirds[0].setName(birds[0].getName());
@@ -15,6 +17,8 @@ public class CageCopier {
 			} else {
 				newBirds[0] = null;
 			}
+			
+
 			if(birds[1] != null) {
 				newBirds[1] = new Bird();
 				newBirds[1].setName(birds[1].getName());
@@ -22,6 +26,7 @@ public class CageCopier {
 			} else {
 				newBirds[1] = null;
 			}
+
 			c2.setBirds(newBirds);
 		}
 	}

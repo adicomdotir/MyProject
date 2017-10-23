@@ -1,58 +1,10 @@
 <html>
-    <head>
-        <style>
-            .test {
-                float: left;
-                color: brown;
-                background-color: bisque;
-                text-align: center;
-                padding: 10px;
-            }
-            .right {
-                float: right;
-            }
-        </style>
-        <script type='text/javascript'>
-            var myMethod = function(index) {
-                console.log(index);
-            }
-            myMethod('HelloWorld');
-            var person = new Object();
-            person.firstName = "Yashar";
-            person.birth = new Date(1987, 6, 2);
-            person.getAge = function() {
-                var now = new Date();
-                return now.getFullYear() - this.birth.getFullYear();
-            }
-            console.log(person.getAge());
-//            var Rectangle = {
-//                x: 3,
-//                y: 4,
-//                area: function() {
-//                    return this.x * this.y;
-//                }
-//            };
-            function Rectangle() {
-                this.x = 3;
-                this.y = 5;
-                this.area = function() {
-                    return this.x * this.y;
-                }
-            };
-            var rect = new Rectangle();
-            console.log(rect.area());
-            var test = {
-                x: 5
-            };
-            test.prototype
-        </script>
-    </head>
-    <body>
-    <div class="test">
-        This is for test;
-    </div>
-    <div class="right">
-        asdfasdfasdf
-    </div>
-    </body>
+
+<head>
+    <style>
+    </style>
+</head>
+<body >
+    <script type="text/javascript" src="demo.js"></script>
+</body>
 </html>
