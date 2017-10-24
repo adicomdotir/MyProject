@@ -1,12 +1,19 @@
-public class SavingAccount extends BankAccount {
-	private float interestAmount;
+package ir.javacup.test;
 
-	public SavingAccount(String customerNationalId, String accountNumber, double balance, float interestAmount) {
-		Super(customerNationalId, accountNumber, balance);
+public class SavingAccount extends BankAccount {
+	private double interestAmount;
+
+	public SavingAccount(String customerNationalId, String accountNumber, double balance, double interestAmount) {
+		super(customerNationalId, accountNumber, balance);
 		this.interestAmount = interestAmount;
 	}
 
-	public float getInterestAmount() {
+	public double getInterestAmount() {
 		return interestAmount;
+	}
+	
+	public void addInterest() {
+		double balance = this.getBalance();
+		this.deposit(balance * this.interestAmount);
 	}
 }
