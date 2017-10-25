@@ -14,6 +14,13 @@ public class SMSOrderDelivery implements OrderDelivery {
     }
 	
 	public void takeNewOrder(Order order) {
+		boolean isInList = false;
+		for (int i = 0; i < coll.size() && isInList == false; i++) {
+			if (order.equals(coll.get(i))) {
+				isInList = true;
+				order = coll.get(i);
+			}
+		}
         if (coll.contains(order)) {
             coll.remove(order);
             coll.add(order);
