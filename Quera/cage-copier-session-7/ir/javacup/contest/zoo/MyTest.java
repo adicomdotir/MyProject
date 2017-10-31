@@ -1,4 +1,4 @@
-package ir.javacup.context.zoo;
+package ir.javacup.contest.zoo;
 
 import static org.junit.Assert.*;
 

@@ -21,13 +21,15 @@ namespace ConsoleApplication
 			proc.Start();
         }
     }
-
+    
     public class Person {
         public string name;
         public Person(string n) {
             name = n;
             Console.WriteLine("Person Constructor!");
         }
+        
+        
     }
 
     public class Student : Person {

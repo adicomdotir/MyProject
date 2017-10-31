@@ -1,4 +1,4 @@
-package ir.javacup.context.zoo;
+package ir.javacup.contest.zoo;
 
 public class CageCopier {
 	public void copy(Cage c1, Cage c2) {
@@ -11,6 +11,9 @@ public class CageCopier {
 			if(birds1 == null) {
 				c2.setBirds(null);
 			} else {
+				if(birds2 == null) {
+					birds2 = new Bird[2];
+				}
 				if(birds1[0] != null) {
 					birds2[0] = new Bird();
 					birds2[0].setName(birds1[0].getName());

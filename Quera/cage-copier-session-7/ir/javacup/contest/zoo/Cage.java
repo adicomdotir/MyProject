@@ -1,4 +1,4 @@
-package ir.javacup.context.zoo;
+package ir.javacup.contest.zoo;
 
 public class Cage {
 	private int id;
