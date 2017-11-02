@@ -13,7 +13,10 @@ public class DequeUtilImpl<T> implements DequeUtil<T> {
 	}
 
 	@Override
-	public T get(int index) throws RuntimeException {
+	public T get(int index) throws ArrayIndexOutOfBoundsException {
+		if (index < 0 || index >= deque.size()) {
+			throw new ArrayIndexOutOfBoundsException("index should be between 0 and size-1");
+		}
 		T temp = null;
 		int i = 0;
 		Iterator<T> it = deque.iterator();
@@ -24,86 +27,82 @@ public class DequeUtilImpl<T> implements DequeUtil<T> {
 			}
 			i++;
 		}
-		if (temp == null) {
-			throw new RuntimeException("index should be between 0 and size-1");
-		}
 		return temp;
 	}
 
 	@Override
 	public boolean push(T element, int index) {
-		if (deque.size() <= index || index < 0) {
-			return false;
-		}
-		Deque<T> tempDeque = new LinkedList<>();
-		int i = 0;
-		Iterator<T> it = deque.iterator();
-		while (it.hasNext()) {
-			T t = (T) it.next();
-			if (i == index) {
-				tempDeque.addLast(element);
-				tempDeque.addLast(t);
-			} else {
-				tempDeque.addLast(t);
+		if (index < deque.size() && index >= 0) {
+			Deque<T> tempDeque = new LinkedList<>();
+			int i = 0;
+			Iterator<T> it = deque.iterator();
+			while (it.hasNext()) {
+				T t = (T) it.next();
+				if (i == index) {
+					tempDeque.addLast(element);
+					tempDeque.addLast(t);
+				} else {
+					tempDeque.addLast(t);
+				}
+				i++;
 			}
-			i++;
+			deque = tempDeque;
+			return true;
 		}
-		deque = tempDeque;
-		return true;
+		return false;
 	}
 
 	@Override
 	public boolean replace(T element, int index) {
-		if (deque.size() <= index || index < 0) {
-			return false;
-		}
-		Deque<T> tempDeque = new LinkedList<>();
-		int i = 0;
-		Iterator<T> it = deque.iterator();
-		while (it.hasNext()) {
-			T t = (T) it.next();
-			if (i == index) {
-				tempDeque.addLast(element);
-			} else {
-				tempDeque.addLast(t);
+		if (index < deque.size() && index >= 0) {
+			Deque<T> tempDeque = new LinkedList<>();
+			int i = 0;
+			Iterator<T> it = deque.iterator();
+			while (it.hasNext()) {
+				T t = (T) it.next();
+				if (i == index) {
+					tempDeque.addLast(element);
+				} else {
+					tempDeque.addLast(t);
+				}
+				i++;
 			}
-			i++;
+			deque = tempDeque;
+			return true;
 		}
-		deque = tempDeque;
-		return true;
+		return false;
 	}
 
 	@Override
 	public boolean reverse(int first, int second) {
-		if (deque.size() <= first || first < 0) {
-			return false;
-		}
-		if (deque.size() <= second || second < 0) {
-			return false;
-		}
-		Deque<T> tempDeque = new LinkedList<>();
-		int i = 0;
-		Iterator<T> it = deque.iterator();
-		while (it.hasNext()) {
-			T t = (T) it.next();
-			if (i >= first && i <= second) {
-				tempDeque.addFirst(t);
+		if ((first < deque.size() && first >= 0)
+				&& (second < deque.size() && second >= 0)
+				&& (first <= second)) {
+			Deque<T> tempDeque = new LinkedList<>();
+			int i = 0;
+			Iterator<T> it = deque.iterator();
+			while (it.hasNext()) {
+				T t = (T) it.next();
+				if (i >= first && i <= second) {
+					tempDeque.addFirst(t);
+				}
+				i++;
 			}
-			i++;
-		}
-		i = 0;
-		Iterator<T> it2 = deque.iterator();
-		while (it2.hasNext()) {
-			T t = (T) it2.next();
-			if (i < first) {
-				tempDeque.addFirst(t);
-			} else if (i > second) {
-				tempDeque.addLast(t);
+			i = 0;
+			Iterator<T> it2 = deque.iterator();
+			while (it2.hasNext()) {
+				T t = (T) it2.next();
+				if (i < first) {
+					tempDeque.addFirst(t);
+				} else if (i > second) {
+					tempDeque.addLast(t);
+				}
+				i++;
 			}
-			i++;
+			deque = tempDeque;
+			return true;
 		}
-		deque = tempDeque;
-		return true;
+		return false;
 	}
 
 }
