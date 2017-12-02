@@ -1,6 +1,7 @@
 package ir.javacup.db;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class UserRepository {
@@ -22,10 +23,12 @@ public class UserRepository {
 
 	public User load(String id) {
 		// implementation
+		return null;
 	}
 
 	public List<User> loadAll() {
 		// implementation
+		return null;
 	}
 
 	public void delete(String id) {
