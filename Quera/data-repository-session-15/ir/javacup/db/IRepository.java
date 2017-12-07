@@ -2,7 +2,7 @@ package ir.javacup.db;
 
 import java.util.List;
 
-public interface IRepository<??????> {
+public interface IRepository<U, T extends IEntity<U>> {
 
 	void save(T entity);
 	
