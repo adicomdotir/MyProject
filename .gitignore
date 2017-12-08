@@ -1,5 +1,7 @@
 *.class
 
+*.zip
+
 *.swp
 *.*~
 project.lock.json
