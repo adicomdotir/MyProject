@@ -2,12 +2,29 @@ package ir.javacup.thread;
 
 public class Resource {
 
+	private boolean available = false;
 	private int content;
 	
-	public int get() {
+	public synchronized int get() {
+		while (available == false) {
+			try {
+				wait();
+			} catch (InterruptedException e) {}
+		}
+		available = false;
+		notify();
+		return content;
 	}
 	
-	public void set(int value) {
+	public synchronized void set(int value) {
+		while (available == true) {
+			try {
+				wait();
+			} catch (InterruptedException e) { } 
+      	}
+		content = value;
+		available = true;
+		notify();
 	}
 	
 }

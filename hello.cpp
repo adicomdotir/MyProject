@@ -1,15 +1,20 @@
 #include <iostream>
 using namespace std;
- 
+
+int sum() {
+    return 6 * 9;
+}
+
 int main() {
 	int number = 88;
 	int* pNumber;
 	pNumber = &number;
-	
+
 	cout << pNumber << endl;
 	cout << &number << endl;
 	cout << *pNumber << endl;
-	cout << number << endl;
-	
+    cout << number << endl;
+	cout << "SUM=" << sum() << endl;
+
 	return 0;
 }
