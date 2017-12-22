@@ -13,14 +13,14 @@ public class Copier {
 	public void copy(Object o1, Object o2) {
 		try {
 			if (fieldsName.length == 0) {
-				Field[] fields = o1.getClass().getFields();
+				Field[] fields = o1.getClass().getDeclaredFields();
 				fieldsName = new String[fields.length];
 				for (int i = 0; i < fields.length; i++) {
 					fieldsName[i] = fields[i].getName();
 				}
 			}
 			for (int i = 0; i < fieldsName.length; i++) {
-				Field field = o1.getClass().getField(fieldsName[i]);
+				Field field = o1.getClass().getDeclaredField(fieldsName[i]);
 				String methodName = "";
 
 				methodName = "get" + fieldsName[i].substring(0, 1).toUpperCase() + fieldsName[i].substring(1);
