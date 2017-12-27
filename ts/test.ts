@@ -1,13 +1,13 @@
 {
-    let a : number = 5;
-    var aa : any = "str";
+    let student: Student;
+    student.name = "Ali";
 }
 
+class Person {
+    public name: string;
+    public age: number;
+}
 
-class TEST {
-    constructor() {}
-
-    doSubmit() {
-        console.log('hello');
-    }
+class Student extends Person {
+    public grade: number;
 }
