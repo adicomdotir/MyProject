@@ -65,4 +65,8 @@ public class Ball {
 	public void reflectVertical() {
 		yDelta -= yDelta;
 	}
+
+	public String toString() {
+		return "Ball[(" + x + "," + y + "),speed=(" + xDelta + "," + yDelta + ")]";
+	}
 }
