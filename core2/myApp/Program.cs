@@ -22,7 +22,18 @@ namespace myApp
     class Person {
     	public string name { set; get; }
     	public int age { set; get; }
-    	Public Person() {
+    	
+    	public Person() {
+    	}
+    	
+    	public Person(string name, int age) {
+    	}
+    }
+    
+    class Student : Person {
+    	public float grade { set; get; }
+    	
+    	public Student(string name, int age, float grade) : base(name, age) {
     	}
     }
 }
