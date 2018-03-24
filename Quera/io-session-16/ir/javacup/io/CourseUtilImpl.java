@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CourseUtilImpl implements CourseUtil {
-	
+
 	private List<Grade> gradeList;
 
 	@Override
@@ -24,14 +24,23 @@ public class CourseUtilImpl implements CourseUtil {
 
 	@Override
 	public Grade load(int lineNumber) {
-		if (lineNumber >= count()) return null;
+		if (lineNumber > count()) return null;
 		Grade grade = gradeList.get(lineNumber - 1);
 		return grade;
 	}
 
 	@Override
 	public void save(Grade grade) {
-		gradeList.add(grade);
+		boolean isDuplicate = false;
+		for (Grade g: gradeList) {
+			if (g.getCourseCode() == grade.getCourseCode() && g.getStudentId().equals(grade.getStudentId())) {
+				isDuplicate = true;
+				break;
+			}
+		}
+		if (!isDuplicate) {
+			gradeList.add(grade);
+		}
 	}
 
 	@Override
