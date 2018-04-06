@@ -126,6 +126,8 @@ $(document).ready(function() {
 		for (var key in teamsInfo[i]) {
 			if (key === 'gd') {
 				$(row).append('<td>' + (teamsInfo[i]['gf'] - teamsInfo[i]['ga']) + '</td>');
+			} else if (key === 'name') {
+				$(row).append('<td>' + (teamsInfo[i][key]) + '[' + teamsInfo[i]['overall'] + ']' + '</td>');
 			} else if (key !== 'overall') {
 				$(row).append('<td>' + (teamsInfo[i][key]) + '</td>');
 			}
