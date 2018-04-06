@@ -3,17 +3,24 @@ var size = teamsInfo.length;
 var teams = [];
 
 $(document).ready(function() {
-	var barca = new Team('Barcelona', 85);
-	var rm = new Team('RealMadrid', 86);
-	var psg = new Team('PSG', 83);
-	var chelsea = new Team('Chelsea', 83);
-	var inter = new Team('Inter', 81);
-	var milan = new Team('Milan', 79);
+
+	// var barca = new Team('Barcelona', 85);
+	// var rm = new Team('RealMadrid', 86);
+	// var psg = new Team('PSG', 83);
+	// var chelsea = new Team('Chelsea', 83);
+	// var inter = new Team('Inter', 81);
+	// var milan = new Team('Milan', 79);
 	// var t1 = new Team('SL Benfica', 79);
 	// var t2 = new Team('FC Porto', 79);
 	// var t3 = new Team('SC Braga', 75);
 	// var t4 = new Team('Sporting CP', 78);
-	teamsInfo.push(barca, rm, psg, chelsea, inter, milan);
+	// teamsInfo.push(barca, rm, psg, chelsea, inter, milan);
+	for (let index = 0; index < 6; index++) {
+		const teamName = `Team${index + 1}`;
+		const overall = Math.round(Math.random() * 20 + 60);
+		const team = new Team(teamName, overall);
+		teamsInfo.push(team);
+	}
 
 	size = teamsInfo.length;
 	for (var i = 0; i < size; i++) {
