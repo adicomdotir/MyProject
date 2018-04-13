@@ -7,12 +7,22 @@ $(document).ready(function() {
 	gameCycle();
 });
 
+const POSITIONS = { 'GK' : 1, 'PLAYER' : 2 };
+
+function Player(name, number, overall, position) {
+	this.name = name;
+	this.number = number;
+	this.overall = overall;
+	this.position = position;
+}
+
 function init() {
 	// Generate teams
 	for (let index = 0; index < 6; index++) {
 		const teamName = `Team${index + 1}`;
-		const overall = Math.round(Math.random() * 20 + 60);
-		const team = new Team(teamName, overall);
+		const players = generatePlayers();
+		const overall = calculateTeamOverall(players);
+		const team = new Team(teamName, overall, players);
 		teamsInfo.push(team);
 	}
 
@@ -24,7 +34,26 @@ function init() {
 	}
 }
 
-function Team(name, overall) {
+function calculateTeamOverall(players) {
+	let overall = 0;
+	for (let index = 0; index < players.length; index++) {
+		overall += players[index].overall;	
+	}
+	return overall
+}
+
+function generatePlayers() {
+	const players = [];
+	for (let i = 0; i < 9; i++) {
+		let pl = new Player('Player', i + 2, Math.round(Math.random() * 10), POSITIONS.PLAYER);
+		players.push(pl);
+	}
+	let pl = new Player('Player', 1, Math.round(Math.random() * 10), POSITIONS.GK);
+	players.push(pl);
+	return players;
+}
+
+function Team(name, overall, players) {
 	this.name = name;
 	this.game = 0;
 	this.win = 0;
@@ -35,6 +64,7 @@ function Team(name, overall) {
 	this.gd = 0;
 	this.points = 0;
 	this.overall = overall;
+	this.players = players;
 }
 
 function swap() {
@@ -93,73 +123,6 @@ function sort() {
 	}
 }
 
-function numberToText(num) {
-	if (num > 99) {
-		return 'Error';
-	}
-	if (num > 20 && num % 10 !== 0) {
-		let n1 = num % 10;
-		let n2 = Math.floor(num / 10) * 10;
-		return numberToText(n2) + numberToText(n1);
-	}
-	switch (num) {
-		case 1:
-			return 'One';
-		case 2:
-			return 'Two';
-		case 3:
-			return 'Three';
-		case 4:
-			return 'Four';
-		case 5:
-			return 'Five';
-		case 6:
-			return 'Six';
-		case 7:
-			return 'Seven';
-		case 8:
-			return 'Eight';
-		case 9:
-			return 'Nine';
-		case 10:
-			return 'Ten';
-		case 11:
-			return 'Eleven';
-		case 12:
-			return 'Twelve';
-		case 13:
-			return 'Thirteen';
-		case 14:
-			return 'Fourteen';
-		case 15:
-			return 'Fifteen';
-		case 16:
-			return 'Sixteen';
-		case 17:
-			return 'Seventeen';
-		case 18:
-			return 'Eightteen';
-		case 19:
-			return 'Nineteen';
-		case 20:
-			return 'Twenty';
-		case 30:
-			return 'Thirty';
-		case 40:
-			return 'Fourty';
-		case 50:
-			return 'Fifty';
-		case 60:
-			return 'Sixty';
-		case 70:
-			return 'Seventy';
-		case 80:
-			return 'Eighty';
-		case 90:
-			return 'Ninety';
-	}
-}
-
 function addAttributeColor(gObj, gOther, obj) {
 	if (gObj > gOther) {
 		$(obj).css("color", "#2CC990");
@@ -175,12 +138,14 @@ function createTeble() {
 		let row = document.createElement("tr");
 		$(row).append('<td>' + (i + 1) + '</td>');
 		for (let key in teamsInfo[i]) {
-			if (key === 'gd') {
-				$(row).append('<td>' + (teamsInfo[i]['gf'] - teamsInfo[i]['ga']) + '</td>');
-			} else if (key === 'name') {
-				$(row).append('<td>' + (teamsInfo[i][key]) + '[' + teamsInfo[i]['overall'] + ']' + '</td>');
-			} else if (key !== 'overall') {
-				$(row).append('<td>' + (teamsInfo[i][key]) + '</td>');
+			if (key !== 'players') {
+				if (key === 'gd') {
+					$(row).append('<td>' + (teamsInfo[i]['gf'] - teamsInfo[i]['ga']) + '</td>');
+				} else if (key === 'name') {
+					$(row).append('<td>' + (teamsInfo[i][key]) + '[' + teamsInfo[i]['overall'] + ']' + '</td>');
+				} else if (key !== 'overall') {
+					$(row).append('<td>' + (teamsInfo[i][key]) + '</td>');
+				}
 			}
 		}
 		$('#tbody').append(row);
@@ -193,7 +158,7 @@ function gameCycle() {
 		let str = '';
 		let header = document.createElement("div");
 		// let header = $("div");
-		$(header).append('<b>' + "Week " + numberToText(i) + '</b>');
+		$(header).append('<b>' + "Week " + i + '</b>');
 		if (col === 0) {
 			$('#figure3').append(header);
 		} else if (col === 1) {
