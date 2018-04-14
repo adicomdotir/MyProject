@@ -19,13 +19,13 @@ function Player(name, number, overall, position) {
 function init() {
 	// Generate teams
 	for (let index = 0; index < 6; index++) {
-		const teamName = `Team${index + 1}`;
+		const teamName = teamNames[Math.floor(Math.random() * teamNames.length)];
 		const players = generatePlayers();
 		const overall = calculateTeamOverall(players);
 		const team = new Team(teamName, overall, players);
 		teamsInfo.push(team);
 	}
-
+	console.log(teamsInfo);
 	size = teamsInfo.length;
 
 	// for roundrobin algorithm
@@ -45,10 +45,16 @@ function calculateTeamOverall(players) {
 function generatePlayers() {
 	const players = [];
 	for (let i = 0; i < 9; i++) {
-		let pl = new Player('Player', i + 2, Math.round(Math.random() * 10), POSITIONS.PLAYER);
+		let fn = firstName[Math.floor(Math.random() * firstName.length)];
+		let ln = lastName[Math.floor(Math.random() * lastName.length)];
+		let fullName = fn + ' ' + ln;
+		let pl = new Player(fullName, i + 2, Math.ceil(Math.random() * 10), POSITIONS.PLAYER);
 		players.push(pl);
 	}
-	let pl = new Player('Player', 1, Math.round(Math.random() * 10), POSITIONS.GK);
+	let fn = firstName[Math.floor(Math.random() * firstName.length)];
+	let ln = lastName[Math.floor(Math.random() * lastName.length)];
+	let fullName = fn + ' ' + ln;
+	let pl = new Player(fullName, 1, Math.ceil(Math.random() * 10), POSITIONS.GK);
 	players.push(pl);
 	return players;
 }
