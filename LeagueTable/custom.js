@@ -19,7 +19,14 @@ function Player(name, number, overall, position) {
 function init() {
 	// Generate teams
 	for (let index = 0; index < 6; index++) {
-		const teamName = teamNames[Math.floor(Math.random() * teamNames.length)];
+		let teamName = teamNames[Math.floor(Math.random() * teamNames.length)];
+		for (let index = 0; index < teamsInfo.length; index++) {
+			const element = teamsInfo[index];
+			if (teamName === element.name) {
+				index = 0;
+				teamName = teamNames[Math.floor(Math.random() * teamNames.length)];
+			}
+		}
 		const players = generatePlayers();
 		const overall = calculateTeamOverall(players);
 		const team = new Team(teamName, overall, players);
@@ -131,11 +138,12 @@ function sort() {
 
 function addAttributeColor(gObj, gOther, obj) {
 	if (gObj > gOther) {
-		$(obj).css("color", "#2CC990");
+		$(obj).css("background-color", "#2CC990");
 	} else if (gObj < gOther) {
-		$(obj).css("color", "#E3000E");
+		$(obj).css("color", "#FFF");
+		$(obj).css("background-color", "#E3000E");
 	} else {
-		$(obj).css("color", "#FEC606");
+		$(obj).css("background-color", "#ffe100");
 	}
 }
 
