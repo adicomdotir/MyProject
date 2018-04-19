@@ -32,7 +32,6 @@ function init() {
 		const team = new Team(teamName, overall, players);
 		teamsInfo.push(team);
 	}
-	console.log(teamsInfo);
 	size = teamsInfo.length;
 
 	// for roundrobin algorithm
