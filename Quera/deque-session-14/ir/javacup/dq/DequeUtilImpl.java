@@ -13,9 +13,9 @@ public class DequeUtilImpl<T> implements DequeUtil<T> {
 	}
 
 	@Override
-	public T get(int index) throws ArrayIndexOutOfBoundsException {
+	public T get(int index) throws IndexOutOfBoundsException {
 		if (index < 0 || index >= deque.size()) {
-			throw new ArrayIndexOutOfBoundsException("index should be between 0 and size-1");
+			throw new IndexOutOfBoundsException("index should be between 0 and size-1");
 		}
 		T temp = null;
 		int i = 0;
