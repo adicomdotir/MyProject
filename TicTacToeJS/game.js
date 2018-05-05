@@ -14,10 +14,12 @@ function reset() {
         cells[i] = 0;
     }
     isWinner = false;
-    const elements = document.querySelectorAll('div.cell');
+    const elements = document.querySelectorAll('td');
     elements.forEach(element => {
         element.innerHTML = '';
     });
+    const element = document.getElementById('result');
+    element.innerHTML = ``;
 }
 
 function cellUpdate(id) {
@@ -36,28 +38,28 @@ function cellUpdate(id) {
 
 function winnerCheck() {
     if (cells[0] == player && cells[1] == player && cells[2] == player) {
-        alert('Winner is player ' + player);
         isWinner = true;
     } else if (cells[3] == player && cells[4] == player && cells[5] == player) {
-        alert('Winner is player ' + player);
         isWinner = true;
     } else if (cells[6] == player && cells[7] == player && cells[8] == player) {
-        alert('Winner is player ' + player);
         isWinner = true;
     } else if (cells[0] == player && cells[3] == player && cells[6] == player) {
-        alert('Winner is player ' + player);
         isWinner = true;
     } else if (cells[1] == player && cells[4] == player && cells[7] == player) {
-        alert('Winner is player ' + player);
         isWinner = true;
     } else if (cells[2] == player && cells[5] == player && cells[8] == player) {
-        alert('Winner is player ' + player);
         isWinner = true;
     } else if (cells[0] == player && cells[4] == player && cells[8] == player) {
-        alert('Winner is player ' + player);
         isWinner = true;
     } else if (cells[2] == player && cells[4] == player && cells[6] == player) {
-        alert('Winner is player ' + player);
         isWinner = true;
     }
+    if (isWinner) {
+        result();
+    }
+}
+
+function result() {
+    const element = document.getElementById('result');
+    element.innerHTML = `Winner is player ${player}`;
 }
