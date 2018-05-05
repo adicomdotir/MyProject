@@ -54,12 +54,16 @@ function winnerCheck() {
     } else if (cells[2] == player && cells[4] == player && cells[6] == player) {
         isWinner = true;
     }
-    if (isWinner) {
-        result();
-    }
+    result();
 }
 
 function result() {
     const element = document.getElementById('result');
-    element.innerHTML = `Winner is player ${player}`;
+    if (isWinner) {
+        element.innerHTML = `Winner is player ${player}`;
+    } else {
+        if (cells.indexOf(0) == -1) {
+            element.innerHTML = `Draw`;
+        }
+    }
 }
