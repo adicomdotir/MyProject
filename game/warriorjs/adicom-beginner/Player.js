@@ -1,5 +1,9 @@
 class Player {
   playTurn(warrior) {
-	warrior.walk();
+	if (warrior.feel().isUnit()) {
+		warrior.attack();
+	} else {
+		warrior.walk();
+	}
   }
 }
