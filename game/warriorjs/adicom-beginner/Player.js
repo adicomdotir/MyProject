@@ -6,7 +6,8 @@ class Player {
 
   playTurn(warrior) {
     if (warrior.feel().isUnit()) {
-        warrior.attack();
+    	
+	      warrior.attack();
     } else {
       if (warrior.health() < this.health) {
         warrior.walk();

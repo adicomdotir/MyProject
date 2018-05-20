@@ -1,0 +1,18 @@
+<label> نام سرور</label>
+
+<input type="text"
+       class="form-control"
+       [(ngModel)]="serverName"
+       >
+<p>{{serverName}}</p>
+
+<button class="btn btn-primary"
+        [disabled]="!allowNewServer"
+        (click)="onCreateServer()">سرور جدید</button>
+<!--<p>{{ serverCreationStatus }}</p>-->
+
+<p *ngIf="serverCreation; else noServer">سرور جدید با موفقیت اضافه شد نام سرور: {{serverName}}</p>
+<ng-template #noServer>
+    <p>سرور جدیدی اضافه نشده است</p>
+</ng-template>
+<app-server *ngFor="let server of servers"></app-server>
