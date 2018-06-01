@@ -83,3 +83,43 @@ console.log(user2);
 // }
 // var sayNumber = say667();
 // sayNumber(); // logs 43
+
+//////////////////////////////////////
+// Below code is for ES5
+// var promise1 = new Promise(function(resolve, reject) {
+//   setTimeout(resolve, 100, 'foo');
+// });
+let myPromise = new Promise((resovle, reject) => {
+	setTimeout(() => {
+		resovle('message');
+		// reject('error')
+	}, 2000)
+});
+myPromise.then((message) => {
+	console.log("HelloWorld1 " + message);
+	return 0;
+}).then((message) => {
+	console.log("HelloWorld2 " + message);
+}).catch((error) => {
+	console.log(error);
+});
+
+function doAsyncTask(cb) {
+  setTimeout(() => {
+    console.log("Async Task Calling Callback");
+    cb();
+  }, 1000);
+}
+doAsyncTask(() => console.log("Callback Called"));
+Promise.resolve("done")
+  .then(
+    (val) => {
+      console.log(val);
+      return 'done2';
+    },
+    (err) => console.error(err)
+  )
+  .then(
+    (val) => console.log(val),
+    (err) => console.error(err)
+  );
