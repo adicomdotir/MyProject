@@ -1,25 +1,25 @@
-const users = [
-	{
-		name: 'Ali',
-		age: 25
-	},
-	{
-		name: 'Hassan',
-		age: 29
-	},
-	{
-		name: 'Yaser',
-		age: 20
-	},
-];
-users.forEach((user) => {
-	console.log(user);
-});
+// const users = [
+// 	{
+// 		name: 'Ali',
+// 		age: 25
+// 	},
+// 	{
+// 		name: 'Hassan',
+// 		age: 29
+// 	},
+// 	{
+// 		name: 'Yaser',
+// 		age: 20
+// 	},
+// ];
+// users.forEach((user) => {
+// 	console.log(user);
+// });
 
-const user2 = users.filter((user) => {
-	return user.age <= 25
-});
-console.log(user2);
+// const user2 = users.filter((user) => {
+// 	return user.age <= 25
+// });
+// console.log(user2);
 // function User(){
 // 	var username, password;
 // 	function doLogin(user,pw) {
@@ -89,37 +89,37 @@ console.log(user2);
 // var promise1 = new Promise(function(resolve, reject) {
 //   setTimeout(resolve, 100, 'foo');
 // });
-let myPromise = new Promise((resovle, reject) => {
-	setTimeout(() => {
-		resovle('message');
-		// reject('error')
-	}, 2000)
-});
-myPromise.then((message) => {
-	console.log("HelloWorld1 " + message);
-	return 0;
-}).then((message) => {
-	console.log("HelloWorld2 " + message);
-}).catch((error) => {
-	console.log(error);
-});
+// let myPromise = new Promise((resovle, reject) => {
+// 	setTimeout(() => {
+// 		resovle('message');
+// 		// reject('error')
+// 	}, 2000)
+// });
+// myPromise.then((message) => {
+// 	console.log("HelloWorld1 " + message);
+// 	return 0;
+// }).then((message) => {
+// 	console.log("HelloWorld2 " + message);
+// }).catch((error) => {
+// 	console.log(error);
+// });
 
-function doAsyncTask(cb) {
-  setTimeout(() => {
-    console.log("Async Task Calling Callback");
-    cb();
-  }, 1000);
-}
-doAsyncTask(() => console.log("Callback Called"));
-Promise.resolve("done")
-  .then(
-    (val) => {
-      console.log(val);
-      return 'done2';
-    },
-    (err) => console.error(err)
-  )
-  .then(
-    (val) => console.log(val),
-    (err) => console.error(err)
-  );
+// function doAsyncTask(cb) {
+//   setTimeout(() => {
+//     console.log("Async Task Calling Callback");
+//     cb();
+//   }, 1000);
+// }
+// doAsyncTask(() => console.log("Callback Called"));
+// Promise.resolve("done")
+//   .then(
+//     (val) => {
+//       console.log(val);
+//       return 'done2';
+//     },
+//     (err) => console.error(err)
+//   )
+//   .then(
+//     (val) => console.log(val),
+//     (err) => console.error(err)
+//   );
