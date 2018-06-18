@@ -30,3 +30,9 @@ function sayCatchPhrase(name) {
 	return phrases[name];
 }
 
+// what is js??
+let index = 8;
+if (++index == 9) {
+	Console.log('Perfect');
+}
+// This is test for github and my training!!
