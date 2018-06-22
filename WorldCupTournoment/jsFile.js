@@ -180,7 +180,6 @@ function insertTeamToTable(tbody, groupId, index) {
 	td.appendChild(document.createTextNode('' + (index + 1)));
 	tr.appendChild(td);
 	var td = document.createElement('td');
-    td.setAttribute("style", "color: " + teams[teamId].color + ";background: linear-gradient(to right, " + teams[teamId].color + " , " + teams[teamId].bg + ")");
 	td.appendChild(document.createTextNode(teams[teamId].name + '[' + teams[teamId].overall + ']'));
 	tr.appendChild(td);
 	var td = document.createElement('td');
@@ -322,11 +321,11 @@ function result() {
 
 function addAttributeColor(gf, ga, element) {
 	if (gf > ga) {
-		element.setAttribute('style', 'color: #2CC990;');
+		element.setAttribute('style', 'color: #2ecc71;');
 	} else if (gf < ga) {
-		element.setAttribute('style', 'color: #E3000E;');
+		element.setAttribute('style', 'color: #e74c3c;');
 	} else {
-		element.setAttribute('style', 'color: #FEC606;');
+		element.setAttribute('style', 'color: #f1c40f;');
 	}
 }
 
