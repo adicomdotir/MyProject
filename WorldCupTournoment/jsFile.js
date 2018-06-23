@@ -440,21 +440,21 @@ function sort() {
 	}
 }
 
-function mergeSort(arr, l, r) {
-	if (l < r) {
-		let m = Math.floor(l + (r - l) / 2);
+function mergeSort(array, left, right) {
+	if (left < right) {
+		let m = Math.floor(left + (right - left) / 2);
 
-		mergeSort(arr, l, m);
-		mergeSort(arr, m + 1, r);
+		mergeSort(arr, left, m);
+		mergeSort(arr, m + 1, right);
 
-		merge(arr, l, m, r);
+		merge(arr, left, m, right);
 	}
 }
 
-function merge(arr, l, m, r) {
+function merge(arr, left, m, right) {
 	let i, j, k;
-	let n1 = m - l + 1;
-	let n2 = r - m;
+	let n1 = m - left + 1;
+	let n2 = right - m;
 
 	/* create temp arrays */
 	let L = [];
@@ -462,14 +462,14 @@ function merge(arr, l, m, r) {
 
 	/* Copy data to temp arrays L[] and R[] */
 	for (i = 0; i < n1; i++)
-		L[i] = teams[teamsId[l + i]].table.points;
+		L[i] = teams[teamsId[left + i]].table.points;
 	for (j = 0; j < n2; j++)
 		R[j] = teams[teamsId[m + 1 + j]].table.points;
 
 	/* Merge the temp arrays back into arr[l..r]*/
 	i = 0; // Initial index of first subarray
 	j = 0; // Initial index of second subarray
-	k = l; // Initial index of merged subarray
+	k = left; // Initial index of merged subarray
 	while (i < n1 && j < n2) {
 		if (L[i] <= R[j]) {
 			arr[k] = L[i];
