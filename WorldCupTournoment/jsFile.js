@@ -14,7 +14,7 @@ var year = 2000;
 var thirth = "";
 
 function init() {
-	var obj;
+	let obj;
 	// for (var i = 0; i < groupCount; i++) {
 	// 	for (var j = 0; j < groupTeamCount; j++) {
 	// 		var overal = Math.round(Math.random() * 20) + 50;
@@ -22,53 +22,6 @@ function init() {
 	// 		teams.push(team);
 	// 	}
 	// }
-	// let team01 = new Team('Brazil', 84, 0);
-	// let team02 = new Team('Croatia', 79, 0);
-	// let team03 = new Team('Mexico', 79, 0);
-	// let team04 = new Team('Cameroon', 69, 0);
-	// teams.push(team01, team02, team03, team04);
-
-	// team01 = new Team('Australia', 73, 1);
-	// team02 = new Team('Netherlands', 81, 1);
-	// team03 = new Team('Spain', 86, 1);
-	// team04 = new Team('Chile', 79, 1);
-	// teams.push(team01, team02, team03, team04);
-
-	// team01 = new Team('Japan', 76, 2);
-	// team02 = new Team('Colombia', 79, 2);
-	// team03 = new Team('Greece', 78, 2);
-	// team04 = new Team('IvoryCoast', 75, 2);
-	// teams.push(team01, team02, team03, team04);
-
-	// team01 = new Team('Italy', 83, 3);
-	// team02 = new Team('Uruguay', 80, 3);
-	// team03 = new Team('CostaRica', 75, 3);
-	// team04 = new Team('England', 82, 3);
-	// teams.push(team01, team02, team03, team04);
-
-	// team01 = new Team('Honduras', 68, 4);
-	// team02 = new Team('Switzerland', 79, 4);
-	// team03 = new Team('Ecuador', 75, 4);
-	// team04 = new Team('France', 83, 4);
-	// teams.push(team01, team02, team03, team04);
-
-	// team01 = new Team('Nigeria', 68, 5);
-	// team02 = new Team('Argentina', 83, 5);
-	// team03 = new Team('Bosnia', 78, 5);
-	// team04 = new Team('Iran', 68, 5);
-	// teams.push(team01, team02, team03, team04);
-
-	// team01 = new Team('Germany', 85, 6);
-	// team02 = new Team('Portugal', 83, 6);
-	// team03 = new Team('Ghana', 74, 6);
-	// team04 = new Team('USA', 76, 6);
-	// teams.push(team01, team02, team03, team04);
-
-	// team01 = new Team('Belgium', 83, 7);
-	// team02 = new Team('Algeria', 77, 7);
-	// team03 = new Team('Russia', 77, 7);
-	// team04 = new Team('SouthKorea', 73, 7);
-	// teams.push(team01, team02, team03, team04);
 
 	let team01 = new Team('Russia', Math.round(1736 / 24), 0);
 	let team02 = new Team('SaudiArabia', Math.round(1490 / 24), 0);
@@ -128,12 +81,10 @@ function init() {
 	elem.removeAttribute('hidden');
 }
 
-function Team(name, overall, group, bg, color) {
+function Team(name, overall, group) {
 	this.name = name;
 	this.overall = overall;
 	this.group = group;
-    this.bg = bg;
-    this.color = color;
 	this.table = {
 		game: 0,
 		win: 0,
@@ -226,9 +177,9 @@ function selectGroupFire(index) {
 }
 
 function result() {
-	for (var gId = 0; gId < groupCount; gId++) {
+	for (var groupId = 0; groupId < groupCount; groupId++) {
 		var teamsId = [];
-		var teamId = gId * 4;
+		var teamId = groupId * 4;
 		for (var i = 0; i < 4; i++, teamId++) {
 			teamsId[i] = teamId;
 		}
@@ -299,7 +250,7 @@ function result() {
 				obj.GA = gA;
 				obj.GB = gB;
 				obj.B = teams[teamsId[groupTeamCount - j - 1]].name;
-				localStorage.setItem(gId * 12 + (i * 2) + j, JSON.stringify(obj));
+				localStorage.setItem(groupId * 12 + (i * 2) + j, JSON.stringify(obj));
 			}
 			////////////////
 			// Swap Block //
@@ -673,7 +624,8 @@ function treeView() {
 			div01.setAttribute('class', 'spacer');
 			div01.appendChild(document.createTextNode('\u00A0'));
 			elem.appendChild(div01);
-		}var div01 = document.createElement('li');
+		}
+		var div01 = document.createElement('li');
 		var att = gB < gA ? "game game-top winner" : "game game-top";
 		div01.setAttribute('class', att);
 		addAttributeColor(gA, gB, div01);
@@ -790,7 +742,8 @@ function treeView() {
 			div01.setAttribute('class', 'spacer');
 			div01.appendChild(document.createTextNode('\u00A0'));
 			elem.appendChild(div01);
-		}var div01 = document.createElement('li');
+		}
+		var div01 = document.createElement('li');
 		var att = gB < gA ? "game game-top winner" : "game game-top";
 		div01.setAttribute('class', att);
 		addAttributeColor(gA, gB, div01);
@@ -827,23 +780,29 @@ function treeView() {
 }
 
 function db(champion, runner) {
-    //Create the database
-    var db = new SQL.Database();
+	//Create the database
+	var db = new SQL.Database();
 	// Run a query without reading the results
-    db.run("CREATE TABLE test (col1, col2);");
-    // Insert two rows: (1,111) and (2,222)
-    db.run("INSERT INTO test VALUES (?,?), (?,?)", [1,111,2,222]);
+	db.run("CREATE TABLE test (col1, col2);");
+	// Insert two rows: (1,111) and (2,222)
+	db.run("INSERT INTO test VALUES (?,?), (?,?)", [1, 111, 2, 222]);
 
 	// Prepare a statement
-    var stmt = db.prepare("SELECT * FROM test WHERE col1 BETWEEN $start AND $end");
-    stmt.getAsObject({$start:1, $end:1}); // {col1:1, col2:111}
+	var stmt = db.prepare("SELECT * FROM test WHERE col1 BETWEEN $start AND $end");
+	stmt.getAsObject({
+		$start: 1,
+		$end: 1
+	}); // {col1:1, col2:111}
 
-    // Bind new values
-    stmt.bind({$start:1, $end:2});
-    while(stmt.step()) { //
-        var row = stmt.getAsObject();
+	// Bind new values
+	stmt.bind({
+		$start: 1,
+		$end: 2
+	});
+	while (stmt.step()) { //
+		var row = stmt.getAsObject();
 		console.log(row);
-    }
+	}
 	//prefixes of implementation that we want to test
 	var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
 	var IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange;
@@ -869,33 +828,36 @@ function db(champion, runner) {
 	var db;
 	var request = indexedDB.open("worldcup", 1);
 
-	request.onerror = function(event) {
+	request.onerror = function (event) {
 		console.log("error: ");
 	};
 
-	request.onsuccess = function(event) {
+	request.onsuccess = function (event) {
 		db = request.result;
 		console.log("success: " + db);
 		addChampion(db, year, champion, runner);
 		// readAll(db);
 	};
 
-	request.onupgradeneeded = function(event) {
+	request.onupgradeneeded = function (event) {
 		var db = event.target.result;
-        var objectStore = db.createObjectStore("champions", {keyPath: "id", autoIncrement:true });
-        for (var i in championData) {
-            objectStore.add(championData[i]);
-        }
+		var objectStore = db.createObjectStore("champions", {
+			keyPath: "id",
+			autoIncrement: true
+		});
+		for (var i in championData) {
+			objectStore.add(championData[i]);
+		}
 	}
 }
 
 function addChampion(db, year, champion, runner) {
-	var transaction = db.transaction(["champions"],"readwrite");
-	transaction.oncomplete = function(event) {
+	var transaction = db.transaction(["champions"], "readwrite");
+	transaction.oncomplete = function (event) {
 		// console.log("oncomplete");
 	};
 
-	transaction.onerror = function(event) {
+	transaction.onerror = function (event) {
 		console.log("Error in adding ...", event);
 	};
 	var objectStore = transaction.objectStore("champions");
@@ -903,20 +865,30 @@ function addChampion(db, year, champion, runner) {
 	var count = objectStore.count();
 	var lastYear = 1999;
 
-	count.onsuccess = function() {
+	count.onsuccess = function () {
 		// console.log(count.result);
 		var request = objectStore.get(count.result);
-		request.onerror = function(event) {
+		request.onerror = function (event) {
 			console.log(event);
 		};
-		request.onsuccess = function(event) {
+		request.onsuccess = function (event) {
 			// Get the old value that we want to update
 			var data = event.target.result;
-			if (data)  {
+			if (data) {
 				lastYear = data.year;
-				objectStore.add({year: ++lastYear, champion: champion, runner: runner, thirth: thirth });
+				objectStore.add({
+					year: ++lastYear,
+					champion: champion,
+					runner: runner,
+					thirth: thirth
+				});
 			} else {
-				objectStore.add({year: ++lastYear, champion: champion, runner: runner, thirth: thirth });
+				objectStore.add({
+					year: ++lastYear,
+					champion: champion,
+					runner: runner,
+					thirth: thirth
+				});
 			}
 		};
 	};
@@ -926,7 +898,7 @@ function addChampion(db, year, champion, runner) {
 function readAll(db) {
 	var objectStore = db.transaction("champions").objectStore("champions");
 
-	objectStore.openCursor().onsuccess = function(event) {
+	objectStore.openCursor().onsuccess = function (event) {
 		var cursor = event.target.result;
 		if (cursor) {
 			console.log("id:" + cursor.key + ", Year: " + cursor.value.year + ", Champion: " + cursor.value.champion + ", Runner: " + cursor.value.runner);
