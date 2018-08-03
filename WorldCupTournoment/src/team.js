@@ -1,7 +1,4 @@
 export default class Team {
-    // ..and an (optional) custom class constructor. If one is
-    // not supplied, a default constructor is used instead:
-    // constructor() { }
     constructor(name, overall, group) {
         this.name = name;
         this.overall = overall;
