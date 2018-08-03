@@ -1,5 +1,3 @@
-'use strict';
-
 var round = 1;
 var groupCount = 8;
 var groupTeamCount = 4;
