@@ -2,7 +2,9 @@
   "name": "worldcuptournoment",
   "version": "1.0.0",
   "description": "",
-  "scripts": {},
+  "scripts": {
+    "prod": "webpack -p"
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
