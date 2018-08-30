@@ -29,6 +29,19 @@ namespace mvc.Controllers
             return View();
         }
 
+        public IActionResult Login()
+        {
+            ViewData["Message"] = "View Data sample text";
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Login(string username)
+        {
+            return Content($"Hello {username}");
+        }  
+
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
