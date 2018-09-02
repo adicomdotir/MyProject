@@ -24,7 +24,7 @@ window.init = function() {
 	// 	}
 	// }
 
-	let team01 = new Team('Russia', Math.round(1736 / 24), 0);
+	let team01 = new Team('Russia', Math.round(1736 / 24), 0, 'assets/rus.png');
 	let team02 = new Team('SaudiArabia', Math.round(1490 / 24), 0);
 	let team03 = new Team('Egypt', Math.round(1678 / 24), 0);
 	let team04 = new Team('Uruguay', Math.round(1871 / 24), 0);
@@ -118,6 +118,13 @@ function insertTeamToTable(tbody, groupId, index) {
 	var td = document.createElement('td');
 	td.appendChild(document.createTextNode(teams[teamId].name + '[' + teams[teamId].overall + ']'));
 	tr.appendChild(td);
+
+	var td = document.createElement('td');
+	var img = document.createElement("img");
+	img.src = teams[teamId].logo;
+	td.appendChild(img);
+	tr.appendChild(td);
+
 	var td = document.createElement('td');
 	td.appendChild(document.createTextNode(teams[teamId].table['game']));
 	tr.appendChild(td);
