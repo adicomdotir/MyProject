@@ -1,15 +1,15 @@
 import Team from './team';
 import DataBase from './database';
 
-var round = 1;
-var groupCount = 8;
-var groupTeamCount = 4;
-var teams = [];
-var treeTeams16 = [];
-var treeTeams8 = [];
-var treeTeams4 = [];
-var treeTeams2 = [];
-var treeTeams2Playoff = [];
+let round = 1;
+const groupCount = 8;
+const groupTeamCount = 4;
+const teams = [];
+const treeTeams16 = [];
+const treeTeams8 = [];
+const treeTeams4 = [];
+const treeTeams2 = [];
+const treeTeams2Playoff = [];
 var globalGroupId = 0;
 var year = 2000;
 var thirth = "";
@@ -25,52 +25,52 @@ window.init = function() {
 	// }
 
 	let team01 = new Team('Russia', Math.round(1736 / 24), 0, 'assets/rus.png');
-	let team02 = new Team('SaudiArabia', Math.round(1490 / 24), 0);
-	let team03 = new Team('Egypt', Math.round(1678 / 24), 0);
-	let team04 = new Team('Uruguay', Math.round(1871 / 24), 0);
+	let team02 = new Team('SaudiArabia', Math.round(1490 / 24), 0, 'assets/ksa.png');
+	let team03 = new Team('Egypt', Math.round(1678 / 24), 0, 'assets/egy.png');
+	let team04 = new Team('Uruguay', Math.round(1871 / 24), 0, 'assets/uru.png');
 	teams.push(team01, team02, team03, team04);
 
-	team01 = new Team('Morocco', Math.round(1651 / 24), 1);
-	team02 = new Team('Iran', Math.round(1645 / 24), 1);
-	team03 = new Team('Portugal', Math.round(1779 / 24), 1);
-	team04 = new Team('Spain', Math.round(1935 / 24), 1);
+	team01 = new Team('Morocco', Math.round(1651 / 24), 1, 'assets/mar.png');
+	team02 = new Team('Iran', Math.round(1645 / 24), 1, 'assets/irn.png');
+	team03 = new Team('Portugal', Math.round(1779 / 24), 1, 'assets/por.png');
+	team04 = new Team('Spain', Math.round(1935 / 24), 1, 'assets/esp.png');
 	teams.push(team01, team02, team03, team04);
 
-	team01 = new Team('France', Math.round(1779 / 24), 2);
-	team02 = new Team('Australia', Math.round(1658 / 24), 2);
-	team03 = new Team('Peru', Math.round(1666 / 24), 2);
-	team04 = new Team('Denmark', Math.round(1793 / 24), 2);
+	team01 = new Team('France', Math.round(1779 / 24), 2, 'assets/fra.png');
+	team02 = new Team('Australia', Math.round(1658 / 24), 2, 'assets/aus.png');
+	team03 = new Team('Peru', Math.round(1666 / 24), 2, 'assets/per.png');
+	team04 = new Team('Denmark', Math.round(1793 / 24), 2, 'assets/den.png');
 	teams.push(team01, team02, team03, team04);
 
-	team01 = new Team('Argentina', Math.round(1981 / 24), 3);
-	team02 = new Team('Iceland', Math.round(1407 / 24), 3);
-	team03 = new Team('Croatia', Math.round(1875 / 24), 3);
-	team04 = new Team('Nigeria', Math.round(1665 / 24), 3);
+	team01 = new Team('Argentina', Math.round(1981 / 24), 3, 'assets/arg.png');
+	team02 = new Team('Iceland', Math.round(1407 / 24), 3, 'assets/isl.png');
+	team03 = new Team('Croatia', Math.round(1875 / 24), 3, 'assets/cro.png');
+	team04 = new Team('Nigeria', Math.round(1665 / 24), 3, 'assets/nga.png');
 	teams.push(team01, team02, team03, team04);
 
 
-	team01 = new Team('Costa Rica', Math.round(1695 / 24), 4);
-	team02 = new Team('Serbia', Math.round(1784 / 24), 4);
-	team03 = new Team('Brazil', Math.round(1991 / 24), 4);
-	team04 = new Team('Switzerland', Math.round(1674 / 24), 4);
+	team01 = new Team('Costa Rica', Math.round(1695 / 24), 4, 'assets/crc.png');
+	team02 = new Team('Serbia', Math.round(1784 / 24), 4, 'assets/srb.png');
+	team03 = new Team('Brazil', Math.round(1991 / 24), 4, 'assets/bra.png');
+	team04 = new Team('Switzerland', Math.round(1674 / 24), 4, 'assets/sui.png');
 	teams.push(team01, team02, team03, team04);
 
-	team01 = new Team('Germany', Math.round(1906 / 24), 5);
-	team02 = new Team('Mexico', Math.round(1775 / 24), 5);
-	team03 = new Team('Sweden', Math.round(1795 / 24), 5);
-	team04 = new Team('South Korea', Math.round(1678 / 24), 5);
+	team01 = new Team('Germany', Math.round(1906 / 24), 5, 'assets/ger.png');
+	team02 = new Team('Mexico', Math.round(1775 / 24), 5, 'assets/mex.png');
+	team03 = new Team('Sweden', Math.round(1795 / 24), 5, 'assets/swe.png');
+	team04 = new Team('South Korea', Math.round(1678 / 24), 5, 'assets/kor.png');
 	teams.push(team01, team02, team03, team04);
 
-	team01 = new Team('Belgium', Math.round(1734 / 24), 6);
-	team02 = new Team('Panama', Math.round(1333 / 24), 6);
-	team03 = new Team('Tunisia', Math.round(1602 / 24), 6);
-	team04 = new Team('England', Math.round(1979 / 24), 6);
+	team01 = new Team('Belgium', Math.round(1734 / 24), 6, 'assets/bel.png');
+	team02 = new Team('Panama', Math.round(1333 / 24), 6, 'assets/pan.png');
+	team03 = new Team('Tunisia', Math.round(1602 / 24), 6, 'assets/tun.png');
+	team04 = new Team('England', Math.round(1979 / 24), 6, 'assets/eng.png');
 	teams.push(team01, team02, team03, team04);
 
-	team01 = new Team('Colombia', Math.round(1583 / 24), 7);
-	team02 = new Team('Japan', Math.round(1454 / 24), 7);
-	team03 = new Team('Poland', Math.round(1708 / 24), 7);
-	team04 = new Team('Senegal', Math.round(1577 / 24), 7);
+	team01 = new Team('Colombia', Math.round(1583 / 24), 7, 'assets/col.png');
+	team02 = new Team('Japan', Math.round(1454 / 24), 7, 'assets/jpn.png');
+	team03 = new Team('Poland', Math.round(1708 / 24), 7, 'assets/pol.png');
+	team04 = new Team('Senegal', Math.round(1577 / 24), 7, 'assets/sen.png');
 	teams.push(team01, team02, team03, team04);
 
 	var elem = document.getElementById('begin');
@@ -115,14 +115,17 @@ function insertTeamToTable(tbody, groupId, index) {
 	var td = document.createElement('td');
 	td.appendChild(document.createTextNode('' + (index + 1)));
 	tr.appendChild(td);
-	var td = document.createElement('td');
-	td.appendChild(document.createTextNode(teams[teamId].name + '[' + teams[teamId].overall + ']'));
-	tr.appendChild(td);
+
 
 	var td = document.createElement('td');
 	var img = document.createElement("img");
 	img.src = teams[teamId].logo;
+	img.width = '30';
 	td.appendChild(img);
+	tr.appendChild(td);
+
+	var td = document.createElement('td');
+	td.appendChild(document.createTextNode(teams[teamId].name + '[' + teams[teamId].overall + ']'));
 	tr.appendChild(td);
 
 	var td = document.createElement('td');
