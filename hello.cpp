@@ -7,6 +7,7 @@ int sum() {
 
 void print() {
 	cout << "Print Method" << endl;
+	cout << "Hello Fit Flow" << endl;
 }
 
 int main() {
