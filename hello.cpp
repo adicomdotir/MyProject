@@ -8,7 +8,7 @@ int sum() {
 
 void print() {
 	cout << "Print Method" << endl;
-	cout << "Hello Fit Flow" << endl;
+	cout << "Hello Git Flow" << endl;
 }
 
 void swap(int *x, int *y) {
@@ -29,7 +29,9 @@ class Geeks {
 		this->geekname = geekname;
 	}
 
-	~Geeks() {}
+	~Geeks() {
+		cout << "Calling destructor" << endl;
+	}
   
     // Member Functions() 
     void printname() { 
@@ -43,7 +45,13 @@ class Geeks {
 	int getAge() {
 		return this->age;
 	}
+
+	void toString();
 }; 
+
+void Geeks::toString() {
+	cout << "[Age: " << this->age << ", Name: " << this->geekname << "]" << endl;
+}
 
 int main() {
 	int number = 88;
@@ -64,7 +72,11 @@ int main() {
 	print();
 
 	Geeks geeks = Geeks(23, "NoName");
-	geeks.printname();
+	Geeks* geeksPtr = new Geeks(geeks);
+	geeksPtr->setAge(18);
+	geeksPtr->toString();
+	geeks.toString();
+	delete geeksPtr;
 
 	return 0;
 }
