@@ -1,6 +1,6 @@
 # MyProject
 
-This is test for My Github 
+This repo is my first repo so I use that for training coding.
 
 this repository using my test coding!
 
